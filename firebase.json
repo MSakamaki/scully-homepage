@@ -1,18 +1,10 @@
 {
   "hosting": [
     {
+      "target": "homepage",
       "public": "dist/static",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "headers": [
-        {
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-store"
-            }
-          ]
-        }
-      ]
+      "headers": []
     }
   ]
 }

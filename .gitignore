@@ -36,6 +36,7 @@ yarn-error.log
 testem.log
 scully.log
 /typings
+firebase-debug.log
 
 # System Files
 .DS_Store
