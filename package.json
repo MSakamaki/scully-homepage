@@ -36,6 +36,7 @@
     "@angular/common": "^10.1.0",
     "@angular/compiler": "^10.1.0",
     "@angular/core": "^10.1.0",
+    "@angular/fire": "^6.0.3",
     "@angular/forms": "^10.1.0",
     "@angular/platform-browser": "^10.1.0",
     "@angular/platform-browser-dynamic": "^10.1.0",
@@ -49,7 +50,8 @@
     "@scullyio/scully": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.5",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.2",
+    "firebase": "^7.13.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.3",
@@ -76,6 +78,12 @@
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~4.0.3"
+    "typescript": "~4.0.3",
+    "@angular-devkit/architect": ">= 0.900 < 0.1100",
+    "firebase-tools": "^8.0.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1",
+    "open": "^7.0.3"
   }
 }
