@@ -25,6 +25,8 @@
 !.vscode/extensions.json
 
 # misc
+/scully/plugins/*.js
+/scully/plugins/*.js.map
 /.sass-cache
 /connect.lock
 /coverage
@@ -32,6 +34,7 @@
 npm-debug.log
 yarn-error.log
 testem.log
+scully.log
 /typings
 
 # System Files
