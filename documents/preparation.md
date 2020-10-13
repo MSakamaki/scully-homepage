@@ -1,3 +1,10 @@
 ## firebase
 
-`npx firebase login` を実行して、Firebase CLIが利用できるようにしておく。
+1. `firebase logout`
+2. `firebase login`
+
+## firebase local serve
+
+```sh
+npm run fb:serve
+```
