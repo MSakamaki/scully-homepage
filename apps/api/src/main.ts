@@ -20,6 +20,8 @@ const server: Express = express();
  *  => http://localhost:3333/api/hello
  * npm run build api && npx firebase serve --only functions
  *  => http://localhost:5000/scully-homepage-5df8c/us-central1/api
+ * npm run build && npx firebase deploy --only functions:api
+ *  => https://us-central1-scully-homepage-5df8c.cloudfunctions.net/api/api/hello
  */
 export const createNestServer = async (expressInstance) => {
   const app = await NestFactory.create(
@@ -28,8 +30,8 @@ export const createNestServer = async (expressInstance) => {
   );
   app.enableCors();
   app.setGlobalPrefix('api');
-  if (process.env.PORT) {
-    app.listen(process.env.PORT);
+  if (process.env.port) {
+    app.listen(process.env.port);
   }
   console.log('the server is starting @ firebase');
   return app.init();
