@@ -11,7 +11,7 @@
       "headers": [],
       "rewrites": [
         {
-          "source": "/api",
+          "source": "/api/**",
           "function": "api"
         }
       ]
