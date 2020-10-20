@@ -4,10 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, ScullyLibModule],
+  imports: [
+    RouterModule.forRoot([]),
+    BrowserModule,
+    HttpClientModule,
+    ScullyLibModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
