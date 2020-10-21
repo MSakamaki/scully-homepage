@@ -31,7 +31,10 @@
     "scully:serve": "scully serve",
     "homepage:serve": "ng run homepage:serve",
     "api:serve": "ng run api:serve",
-    "fb:serve": "firebase serve"
+    "fb:serve": "firebase serve",
+    "preinstall": "npx check-node-version --node 14",
+    "prestart": "npx check-node-version --node 14",
+    "pretest": "npx check-node-version --node 14"
   },
   "private": true,
   "dependencies": {
