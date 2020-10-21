@@ -25,7 +25,7 @@
               "apps/homepage/src/favicon.ico",
               "apps/homepage/src/assets"
             ],
-            "styles": ["apps/homepage/src/styles.scss"],
+            "styles": ["apps/homepage/src/styles.scss","node_modules/normalize.css"],
             "scripts": [],
             "allowedCommonJsDependencies": ["@apollo/client"]
           },
