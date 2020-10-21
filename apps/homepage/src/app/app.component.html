@@ -5,4 +5,10 @@
     src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
   />
 </div>
+
 <div>Message: {{ hello$ | async | json }}</div>
+
+Articles:
+<ng-container *ngFor="let article of articles$ | async">
+  {{ article.title }}
+</ng-container>

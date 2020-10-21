@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { RouterModule } from '@angular/router';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     HttpClientModule,
     ScullyLibModule,
+    GraphQLModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
