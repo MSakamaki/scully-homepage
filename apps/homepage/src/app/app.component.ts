@@ -6,7 +6,9 @@ import { map } from 'rxjs/operators';
 import { TransferStateService } from '@scullyio/ng-lib';
 
 @Component({
-  selector: 'web-page-root',templateUrl: './app.component.html',styleUrls: ['./app.component.scss'],
+  selector: 'web-page-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   hello$ = this.transferState.useScullyTransferState(
