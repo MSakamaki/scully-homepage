@@ -103,7 +103,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run format:write && npm run affected:lint -- --parallel --base main && npm run affected:build -- --parallel --base main && git add .",
-      "pre-push": "npx ng run homepage:build:production && npx ng run api:build:production && npm run scully"
+      "pre-push": "npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully"
     }
   },
   "main": "dist/apps/api/main.js",
