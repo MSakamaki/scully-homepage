@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@web-page/api-interfaces';
+import { Message } from '../../../../libs/api-interfaces/src/lib/api-interfaces';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { TransferStateService } from '@scullyio/ng-lib';
