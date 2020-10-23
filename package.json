@@ -23,7 +23,7 @@
     "format:write": "nx format:write",
     "format:check": "nx format:check",
     "update": "ng update @nrwl/workspace",
-    "update:npm": "npx ncu \"/^(npm-check-updates|@scullyio|concurrently|apollo-angular|firebase-tools)/\"",
+    "update:npm": "npx ncu \"/^(npm-check-updates|@scullyio|concurrently|apollo-angular|firebase-tools|husky)/\"",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
