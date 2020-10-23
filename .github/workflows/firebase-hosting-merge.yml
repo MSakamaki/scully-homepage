@@ -16,6 +16,10 @@ jobs:
           node-version: '14'
       - name: npm dependencies
         run: npm install     
+      - name: format check
+        run: npm run format:check
+      - name: lint
+        run: npm run lint
       - name: build homepage
         run: npm run build homepage
       - name: build scully
