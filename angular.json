@@ -27,7 +27,11 @@
             ],
             "styles": ["apps/homepage/src/styles.scss"],
             "scripts": [],
-            "allowedCommonJsDependencies": ["@apollo/client"]
+            "allowedCommonJsDependencies": [
+              "@apollo/client",
+              "graphql-tag",
+              "zen-observable"
+            ]
           },
           "configurations": {
             "production": {

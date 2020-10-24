@@ -18,11 +18,9 @@ jobs:
       - name: lint
         run: npm run lint
       - name: build homepage
-        run: npm run build homepage
+        run: npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel
       - name: build scully
         run: npm run scully
-      - name: build api
-        run: npm run build api
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
