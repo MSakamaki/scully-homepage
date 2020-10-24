@@ -1,0 +1,13 @@
+version: '3'
+services:
+  homepage:
+    build:
+      context: ../../
+      dockerfile: .docker/e2e/Dockerfile
+    command: npx concurrently "npx nx e2e homepage-e2e --headless" "port=3333  npm start api" --names 'E2E,API' --success first --kill-others
+    container_name: scully-homepage
+    volumes:
+      - ../../apps:/usr/webpage/apps
+      - ../../libs:/usr/webpage/libs
+      - ../../tools:/usr/webpage/tools
+      - ../../scully:/usr/webpage/scully

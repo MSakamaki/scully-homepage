@@ -6,9 +6,11 @@
   />
 </div>
 
-<div>Message: {{ hello$ | async | json }}</div>
+<div data-cy="message" *ngIf="hello$ | async as hello">
+  Message: {{ hello?.message }}
+</div>
 
-Articles:
-<ng-container *ngFor="let article of articles$ | async">
-  {{ article.title }}
+Articles:X
+<ng-container *ngFor="let article of articles$ | async; let i = index">
+  <div [attr.data-cy]="'article-title-' + i">{{ article.title }}</div>
 </ng-container>
