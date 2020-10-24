@@ -10,7 +10,7 @@
   Message: {{ hello?.message }}
 </div>
 
-Articles:X
+Articles:
 <ng-container *ngFor="let article of articles$ | async; let i = index">
   <div [attr.data-cy]="'article-title-' + i">{{ article.title }}</div>
 </ng-container>
