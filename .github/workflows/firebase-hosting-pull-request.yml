@@ -15,11 +15,13 @@ jobs:
           browser: chrome
           headless: true
           command: npx concurrently "npx nx e2e homepage-e2e --headless" "port=3333  npm start api" --names 'E2E,API' --success first --kill-others
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2
         if: failure()
         with:
-          name: __diff_output__
-          path: apps/**/__diff_output__
+          name: diff_outputs
+          # https://github.com/actions/upload-artifact/issues/55
+          path: |
+            'apps/homepage-e2e/src/snapshot/app.spec.ts/__diff_output__'
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
