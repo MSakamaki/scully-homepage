@@ -23,7 +23,8 @@
             "aot": true,
             "assets": [
               "apps/homepage/src/favicon.ico",
-              "apps/homepage/src/assets"
+              "apps/homepage/src/assets",
+              "apps/homepage/src/robots.txt"
             ],
             "styles": ["apps/homepage/src/styles.scss"],
             "scripts": [],

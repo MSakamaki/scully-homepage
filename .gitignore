@@ -35,6 +35,9 @@ testem.log
 scully.log
 /typings
 firebase-debug.log
+scully/plugins/*.js
+scully/plugins/*.map
+apps/**/*/src/assets/scully-routes.json
 
 # System Files
 .DS_Store
