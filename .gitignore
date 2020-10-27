@@ -38,6 +38,7 @@ firebase-debug.log
 scully/plugins/*.js
 scully/plugins/*.map
 apps/**/*/src/assets/scully-routes.json
+/**/__diff_output__/
 
 # System Files
 .DS_Store
