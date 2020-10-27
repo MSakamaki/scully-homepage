@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap:https://scully-homepage-5df8c.web.app/sitemap.xml
