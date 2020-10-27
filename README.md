@@ -5,8 +5,16 @@
 ## development
 
 ```sh
-npx concurrently "npm start" "port=3333  npm start api" --names 'WEBPAGE'
+npx concurrently "npm start" "port=3333  npm start api" --names 'WEBPAGE,API'
+```
 
+### e2e testing
+
+```sh
+# headless run
+docker-compose -f .docker/e2e/docker-compose.yml up --build
+# watch debugging
+npx concurrently "npx nx e2e homepage-e2e --watch" "port=3333  npm start api" --names 'E2E,API'
 ```
 
 ## scully development

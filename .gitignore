@@ -37,6 +37,7 @@ testem.log
 scully.log
 /typings
 firebase-debug.log
+/**/__diff_output__/
 
 # System Files
 .DS_Store

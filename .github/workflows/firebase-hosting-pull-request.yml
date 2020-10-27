@@ -4,6 +4,23 @@
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
 jobs:
+  # https://github.com/cypress-io/github-action
+  cypress-run:
+    runs-on: ubuntu-16.04
+    container: cypress/browsers:node14.7.0-chrome84
+    steps:
+      - uses: actions/checkout@v1
+      - uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
+          command: npx concurrently "npx nx e2e homepage-e2e --headless" "port=3333  npm start api" --names 'E2E,API' --success first --kill-others
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: diff_outputs
+          # https://github.com/actions/upload-artifact/issues/55
+          path: apps/homepage-e2e/src/snapshot/app.spec.ts/__diff_output__
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
