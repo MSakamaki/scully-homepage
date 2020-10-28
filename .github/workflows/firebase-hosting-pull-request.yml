@@ -57,7 +57,7 @@ jobs:
         run: |
           npm ci
           npx nx run-many --target=build --configuration=production --projects=homepage
-          build scully
+          npm run scully
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.5.x
