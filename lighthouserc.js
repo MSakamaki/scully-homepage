@@ -1,7 +1,10 @@
 module.exports = {
   ci: {
+    collect: {
+      staticDistDir: './dist/static',
+    },
     upload: {
-      target: 'dist/static',
+      target: 'temporary-public-storage',
     },
   },
 };
