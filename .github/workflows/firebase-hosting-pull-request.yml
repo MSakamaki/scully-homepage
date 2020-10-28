@@ -45,7 +45,7 @@ jobs:
           projectId: scully-homepage-5df8c
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-  lighthouse:
+  static-lighthouse:
     name: Lighthouse
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +58,7 @@ jobs:
           npm ci
           npx nx run-many --target=build --configuration=production --projects=homepage
           npm run scully
-      - name: run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli@0.5.x
-          lhci autorun
+      - name: Run Lighthouse against a static dist dir
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          configPath: './lighthouserc.js'
