@@ -22,16 +22,18 @@ jobs:
           # https://github.com/actions/upload-artifact/issues/55
           path: apps/homepage-e2e/src/snapshot/app.spec.ts/__diff_output__
   validation:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - name: npm dependencies
-      run: npm ci     
-    - name: format check
-      run: npm run format:check
-    - name: lint
-      run: npx nx run-many --target=lint --all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: npm dependencies
+        run: npm ci     
+      - name: format check
+        run: npm run format:check
+      - name: lint
+        run: npx nx run-many --target=lint --all
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
