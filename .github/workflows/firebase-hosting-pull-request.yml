@@ -57,6 +57,12 @@ jobs:
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
       - uses: actions/checkout@v2
+      - name: Run Lighthouse on urls and validate with lighthouserc
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          urls: |
+            ${{ steps.fireabase_deploy.outputs.details_url }}
+          uploadArtifacts: false
       - name: Audit preview URL with Lighthouse
         id: lighthouse_audit
         uses: treosh/lighthouse-ci-action@v3
@@ -98,23 +104,3 @@ jobs:
           header: lighthouse
           message: |
             ${{ steps.format_lighthouse_score.outputs.comment }}
-
-
-
-  static-lighthouse:
-    name: static site Lighthouse
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-      - name: npm install, build
-        run: |
-          npm ci
-          npx nx run-many --target=build --configuration=production --projects=homepage
-          npm run scully
-      - name: Run Lighthouse against a static dist dir
-        uses: treosh/lighthouse-ci-action@v3
-        with:
-          configPath: './lighthouserc.js'
