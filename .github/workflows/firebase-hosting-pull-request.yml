@@ -56,7 +56,6 @@ jobs:
           projectId: scully-homepage-5df8c
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-      - uses: actions/checkout@v2
       - name: Run Lighthouse on urls and validate with lighthouserc
         uses: treosh/lighthouse-ci-action@v3
         with:
