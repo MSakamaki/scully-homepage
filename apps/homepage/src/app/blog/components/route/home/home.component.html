@@ -1,4 +1,12 @@
-<ng-container *ngIf="articles$ | async as articles">
+<section>
+  <h2>記事のタグ一覧</h2>
+  <div *ngFor="let tag of tags$ | async; let i = index">
+    <button (click)="onTagSet(tag)" [attr.data-cy]="'tag-' + tag">
+      #{{ tag }}
+    </button>
+  </div>
+</section>
+<section *ngIf="articles$ | async as articles">
   <div
     *ngFor="let article of articles; let i = index"
     [attr.data-cy]="'article-title-' + i"
@@ -11,4 +19,4 @@
     >
     <div>{{ article.publishing }}</div>
   </div>
-</ng-container>
+</section>
