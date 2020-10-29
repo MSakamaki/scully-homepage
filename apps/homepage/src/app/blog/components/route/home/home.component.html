@@ -1,7 +1,7 @@
 <section>
   <h2>記事のタグ一覧</h2>
   <div *ngFor="let tag of tags$ | async; let i = index">
-    <button (click)="onTagSet(tag)" [attr.data-cy]="'tag-' + tag">
+    <button (click)="onTagSet(tag)" [attr.data-cy]="'filter-tag-' + tag">
       #{{ tag }}
     </button>
   </div>
