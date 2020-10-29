@@ -1,0 +1,14 @@
+<ng-container *ngIf="articles$ | async as articles">
+  <div
+    *ngFor="let article of articles; let i = index"
+    [attr.data-cy]="'article-title-' + i"
+  >
+    <h2>{{ article.title }}</h2>
+    <span
+      *ngFor="let tag of article.tags; let i = index"
+      [attr.data-cy]="'tag-' + tag.name"
+      >#{{ tag.name }}</span
+    >
+    <div>{{ article.publishing }}</div>
+  </div>
+</ng-container>
