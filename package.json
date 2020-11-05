@@ -107,7 +107,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run format:write && npm run affected:lint -- --parallel --uncommitted && npm run affected:test -- --parallel --uncommitted && git add .",
-      "pre-push": "npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully"
+      "pre-push": "docker-compose -f .docker/e2e/docker-compose.yml up --build && npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully"
     }
   },
   "main": "dist/apps/api/main.js",
