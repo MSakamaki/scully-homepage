@@ -23,7 +23,7 @@
     "format:write": "nx format:write",
     "format:check": "nx format:check",
     "update": "ng update @nrwl/workspace",
-    "update:npm": "npx ncu \"/^(npm-check-updates|@scullyio|concurrently|apollo-angular|firebase-tools|husky|@gammastream/scully-plugin-sitemap|fast-xml-parser|xmlbuilder)/\"",
+    "update:npm": "npx ncu \"/^(npm-check-updates|@scullyio|concurrently|apollo-angular|firebase-tools|husky|@gammastream/scully-plugin-sitemap|fast-xml-parser|xmlbuilder|post-merge-install|cypress-image-snapshot)/\"",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
@@ -97,6 +97,7 @@
     "jest-preset-angular": "8.3.1",
     "npm-check-updates": "^9.1.2",
     "open": "^7.0.3",
+    "post-merge-install": "^0.4.0",
     "prettier": "2.0.4",
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
@@ -107,7 +108,9 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run format:write && npm run affected:lint -- --parallel --uncommitted && npm run affected:test -- --parallel --uncommitted && git add .",
-      "pre-push": "docker-compose -f .docker/e2e/docker-compose.yml up --build && npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully"
+      "pre-push": "docker-compose -f .docker/e2e/docker-compose.yml up --build && npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully",
+      "post-merge": "post-merge-install",
+      "post-rebase": "post-merge-install"
     }
   },
   "main": "dist/apps/api/main.js",
