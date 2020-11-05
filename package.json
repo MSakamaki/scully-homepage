@@ -106,7 +106,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format:write && npm run affected:lint -- --parallel --base main && npm run affected:build -- --parallel --base main && git add .",
+      "pre-commit": "npm run format:write && npm run affected:lint -- --parallel --uncommitted && npm run affected:test -- --parallel --uncommitted && git add .",
       "pre-push": "npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully"
     }
   },

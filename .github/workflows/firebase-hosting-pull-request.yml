@@ -10,6 +10,8 @@ jobs:
     container: cypress/browsers:node14.7.0-chrome84
     steps:
       - uses: actions/checkout@v1
+      - name: unit test
+        run: npx nx run-many --target=test --all --parallel
       - uses: cypress-io/github-action@v2
         with:
           browser: chrome
