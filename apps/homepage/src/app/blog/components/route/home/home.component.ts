@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
 
   private readonly articleQueryRef$ = this.apollo.watchQuery<{
     articles: Article[];
+    tags: Tag[];
   }>({
     query: gql`
       query ArticlesProviding($where: ArticleWhereInput) {
@@ -49,6 +50,9 @@ export class HomeComponent implements OnInit {
           tags {
             name
           }
+        }
+        tags {
+          name
         }
       }
     `,
@@ -66,19 +70,9 @@ export class HomeComponent implements OnInit {
 
   tags$ = this.transferState.useScullyTransferState(
     'tags',
-    this.apollo
-      .watchQuery<{ tags: Tag[] }>({
-        query: gql`
-          query {
-            tags {
-              name
-            }
-          }
-        `,
-      })
-      .valueChanges.pipe(
-        map((result) => result.data.tags.map((tag) => tag.name))
-      )
+    this.articleQueryRef$.valueChanges.pipe(
+      map((result) => result.data.tags.map((tag) => tag.name))
+    )
   );
 
   ngOnInit(): void {}
