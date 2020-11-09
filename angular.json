@@ -24,7 +24,8 @@
             "assets": [
               "apps/homepage/src/favicon.ico",
               "apps/homepage/src/assets",
-              "apps/homepage/src/robots.txt"
+              "apps/homepage/src/robots.txt",
+              "apps/homepage/src/google039a60ac139f898a.html"
             ],
             "styles": ["apps/homepage/src/styles.scss"],
             "scripts": [],
