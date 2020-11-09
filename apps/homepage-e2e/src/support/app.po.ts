@@ -1,5 +1,3 @@
-export const getGreeting = () => cy.get('h1');
-
-export const getMessage = () => cy.get('[data-cy="message"]');
+export const getFilterTags = () => cy.get('[data-cy^="filter-tag-"]');
 
 export const getArtices = () => cy.get('[data-cy^="article-title-"]');

@@ -1,16 +1,2 @@
-<div style="text-align: center;">
-  <h1>Welcome to homepage!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-  />
-</div>
-
-<div data-cy="message" *ngIf="hello$ | async as hello">
-  Message: {{ hello?.message }}
-</div>
-
-Articles:
-<ng-container *ngFor="let article of articles$ | async; let i = index">
-  <div [attr.data-cy]="'article-title-' + i">{{ article.title }}</div>
-</ng-container>
+<header></header>
+<router-outlet></router-outlet>

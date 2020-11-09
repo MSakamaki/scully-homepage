@@ -4,6 +4,17 @@
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: npm dependencies
+        run: npm ci     
+      - name: unit test
+        run: npx nx run-many --target=test --all --parallel
   # https://github.com/cypress-io/github-action
   cypress-run:
     runs-on: ubuntu-16.04

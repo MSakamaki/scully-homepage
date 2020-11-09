@@ -3,22 +3,19 @@ import * as app from '../support/app.po';
 describe('homepage', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    app.getGreeting().contains('Welcome to homepage!');
-  });
-
-  it('should display api message', () => {
-    cy.get('div[data-cy="message"]', {
+  it('should display 記事のタグ一覧', () => {
+    cy.get('[data-cy^="filter-tag-"]', {
       timeout: 1000,
-    }).should('be.visible');
-    app.getMessage().contains('Message: Welcome to api!');
+    })
+      .contains('#タグ検証用')
+      .should('be.visible');
   });
 
   it('should display graphcms articles', () => {
     cy.get('[data-cy^="article-title-"]', {
       timeout: 1000,
     }).should('be.visible');
-    app.getArtices().first().contains('ブログつくりました');
+    app.getArtices().last().contains('ブログつくりました');
   });
 
   it('pixcel test', () => {
