@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { TransferStateService } from '@scullyio/ng-lib';
 import { Apollo, gql } from 'apollo-angular';
+import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /** scully.TransferStateService name: article summary */
@@ -35,6 +34,8 @@ export interface Tag {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  private valueChangesSubscription$: Subscription = void 0;
+
   constructor(
     private apollo: Apollo,
     private transferState: TransferStateService
@@ -80,15 +81,22 @@ export class HomeComponent implements OnInit {
     )
   );
 
-  ngOnInit(): void {
-    this.articleQueryRef$.valueChanges.subscribe((data) => {
-      this.transferState.setState(STATE_NAME_ARTICLE, data.data.articles);
-    });
-  }
+  ngOnInit(): void {}
 
   onTagSet(tag: string) {
+    this.initObservable();
     this.articleQueryRef$.setVariables({
       where: { AND: [{ tags_some: { name: tag } }] },
     });
+  }
+
+  private initObservable() {
+    if (!this.valueChangesSubscription$) {
+      this.valueChangesSubscription$ = this.articleQueryRef$.valueChanges.subscribe(
+        (data) => {
+          this.transferState.setState(STATE_NAME_ARTICLE, data.data.articles);
+        }
+      );
+    }
   }
 }
