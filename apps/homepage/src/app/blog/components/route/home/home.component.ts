@@ -5,6 +5,11 @@ import { TransferStateService } from '@scullyio/ng-lib';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 
+/** scully.TransferStateService name: article summary */
+const STATE_NAME_ARTICLE = 'articles';
+/** scully.TransferStateService name: all tags */
+const STATE_NAME_TAGS = 'tags';
+
 export interface Article {
   title: string;
   body: string;
@@ -62,20 +67,24 @@ export class HomeComponent implements OnInit {
   });
 
   articles$ = this.transferState.useScullyTransferState(
-    'articles',
+    STATE_NAME_ARTICLE,
     this.articleQueryRef$.valueChanges.pipe(
       map((result) => result.data.articles)
     )
   );
 
   tags$ = this.transferState.useScullyTransferState(
-    'tags',
+    STATE_NAME_TAGS,
     this.articleQueryRef$.valueChanges.pipe(
       map((result) => result.data.tags.map((tag) => tag.name))
     )
   );
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.articleQueryRef$.valueChanges.subscribe((data) => {
+      this.transferState.setState(STATE_NAME_ARTICLE, data.data.articles);
+    });
+  }
 
   onTagSet(tag: string) {
     this.articleQueryRef$.setVariables({
