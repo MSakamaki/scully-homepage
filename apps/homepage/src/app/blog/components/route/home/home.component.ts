@@ -1,9 +1,13 @@
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-import { TransferStateService } from '@scullyio/ng-lib';
+import { UserEventHookTransferStateService } from './user-event-hook-transfer-state.service';
 import { Apollo, gql } from 'apollo-angular';
+import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+/** scully.TransferStateService name: article summary */
+const STATE_NAME_ARTICLE = 'articles';
+/** scully.TransferStateService name: all tags */
+const STATE_NAME_TAGS = 'tags';
 
 export interface Article {
   title: string;
@@ -30,9 +34,11 @@ export interface Tag {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  private valueChangesSubscription$: Subscription = void 0;
+
   constructor(
     private apollo: Apollo,
-    private transferState: TransferStateService
+    private transferState: UserEventHookTransferStateService
   ) {}
 
   private readonly articleQueryRef$ = this.apollo.watchQuery<{
@@ -62,14 +68,14 @@ export class HomeComponent implements OnInit {
   });
 
   articles$ = this.transferState.useScullyTransferState(
-    'articles',
+    STATE_NAME_ARTICLE,
     this.articleQueryRef$.valueChanges.pipe(
       map((result) => result.data.articles)
     )
   );
 
   tags$ = this.transferState.useScullyTransferState(
-    'tags',
+    STATE_NAME_TAGS,
     this.articleQueryRef$.valueChanges.pipe(
       map((result) => result.data.tags.map((tag) => tag.name))
     )
