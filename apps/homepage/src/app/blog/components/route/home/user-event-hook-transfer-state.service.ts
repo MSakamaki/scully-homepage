@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
 import { isScullyGenerated, TransferStateService } from '@scullyio/ng-lib';
-import {
-  fromEvent,
-  Subject,
-  Observable,
-  merge,
-  asyncScheduler,
-  scheduled,
-} from 'rxjs';
+import { fromEvent, Subject, Observable, of } from 'rxjs';
 import { mergeAll, take, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -22,8 +15,8 @@ export class UserEventHookTransferStateService {
   ): Observable<T> {
     if (isScullyGenerated()) {
       const bs = new Subject<T>();
-      scheduled(
-        [
+      of(
+        ...[
           'mousemove',
           'mousedown',
           'scroll',
@@ -31,8 +24,7 @@ export class UserEventHookTransferStateService {
           'keydown',
           'touchstart',
           'touchmove',
-        ].map((event) => fromEvent(document, event)),
-        asyncScheduler
+        ].map((event) => fromEvent(document, event))
       )
         .pipe(mergeAll(), take(1))
         .subscribe(() => {
@@ -40,10 +32,9 @@ export class UserEventHookTransferStateService {
             bs.next(state);
           });
         });
-      return scheduled(
-        [this.transferState.getState<T>(name), bs.asObservable()],
-        asyncScheduler
-      ).pipe(mergeAll());
+      return of(this.transferState.getState<T>(name), bs.asObservable()).pipe(
+        mergeAll()
+      );
     }
     return originalState.pipe(
       tap((state) => this.transferState.setState(name, state))
