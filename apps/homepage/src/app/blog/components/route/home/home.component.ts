@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TransferStateService } from '@scullyio/ng-lib';
+import { UserEventHookTransferStateService } from './user-event-hook-transfer-state.service';
 import { Apollo, gql } from 'apollo-angular';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private apollo: Apollo,
-    private transferState: TransferStateService
+    private transferState: UserEventHookTransferStateService
   ) {}
 
   private readonly articleQueryRef$ = this.apollo.watchQuery<{
@@ -84,19 +84,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   onTagSet(tag: string) {
-    this.initObservable();
     this.articleQueryRef$.setVariables({
       where: { AND: [{ tags_some: { name: tag } }] },
     });
-  }
-
-  private initObservable() {
-    if (!this.valueChangesSubscription$) {
-      this.valueChangesSubscription$ = this.articleQueryRef$.valueChanges.subscribe(
-        (data) => {
-          this.transferState.setState(STATE_NAME_ARTICLE, data.data.articles);
-        }
-      );
-    }
   }
 }
