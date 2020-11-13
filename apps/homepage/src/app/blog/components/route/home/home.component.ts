@@ -10,6 +10,7 @@ const STATE_NAME_ARTICLE = 'articles';
 const STATE_NAME_TAGS = 'tags';
 
 export interface Article {
+  id: string;
   title: string;
   body: string;
   publishing: Date;
@@ -48,6 +49,7 @@ export class HomeComponent implements OnInit {
     query: gql`
       query ArticlesProviding($where: ArticleWhereInput) {
         articles(orderBy: createdAt_DESC, where: $where) {
+          id
           title
           publishing
           writer {
