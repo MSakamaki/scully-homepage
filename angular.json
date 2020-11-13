@@ -27,8 +27,11 @@
               "apps/homepage/src/robots.txt",
               "apps/homepage/src/google039a60ac139f898a.html"
             ],
-            "styles": ["apps/homepage/src/styles.scss"],
-            "scripts": [],
+            "styles": [
+              "apps/homepage/src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css"
+            ],
+            "scripts": ["node_modules/marked/lib/marked.js"],
             "allowedCommonJsDependencies": [
               "@apollo/client",
               "graphql-tag",
