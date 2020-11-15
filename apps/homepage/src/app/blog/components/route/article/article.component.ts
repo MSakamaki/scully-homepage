@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { Article } from '../home/home.component';
+import { UserEventHookTransferStateService } from '../home/user-event-hook-transfer-state.service';
+
+/** scully.TransferStateService name: detail summary */
+const STATE_NAME_DETAIL = 'detail';
 
 @Component({
   selector: 'web-page-article',
@@ -10,7 +14,11 @@ import { Article } from '../home/home.component';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
-  constructor(private apollo: Apollo, private route: ActivatedRoute) {}
+  constructor(
+    private apollo: Apollo,
+    private route: ActivatedRoute,
+    private transferState: UserEventHookTransferStateService
+  ) {}
 
   private readonly articleQueryRef$ = this.apollo.query<{
     article: Article;
@@ -33,7 +41,10 @@ export class ArticleComponent implements OnInit {
     },
   });
 
-  article$ = this.articleQueryRef$.pipe(map((result) => result.data.article));
+  article$ = this.transferState.useScullyTransferState(
+    STATE_NAME_DETAIL,
+    this.articleQueryRef$.pipe(map((result) => result.data.article))
+  );
 
   ngOnInit(): void {}
 }
