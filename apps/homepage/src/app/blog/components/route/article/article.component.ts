@@ -4,10 +4,7 @@ import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { Article } from '../home/home.component';
 import { UserEventHookTransferStateService } from '../home/user-event-hook-transfer-state.service';
-import {
-  ExternalResourceService,
-  FeatureName,
-} from '../../../../service/external-resource.service';
+import { DomControlService } from '../../../../service/dom-control.service';
 
 /** scully.TransferStateService name: detail summary */
 const STATE_NAME_DETAIL = 'detail';
@@ -22,7 +19,7 @@ export class ArticleComponent implements OnInit {
     private apollo: Apollo,
     private route: ActivatedRoute,
     private transferState: UserEventHookTransferStateService,
-    private externalResourceService: ExternalResourceService
+    private domControlService: DomControlService
   ) {}
 
   private readonly articleQueryRef$ = this.apollo.query<{
@@ -52,6 +49,11 @@ export class ArticleComponent implements OnInit {
   );
 
   ngOnInit(): void {
-    this.externalResourceService.load([FeatureName.markdown]);
+    this.domControlService.addScript(
+      'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js'
+    );
+    this.domControlService.addStylesheets(
+      'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-twilight.min.css'
+    );
   }
 }
