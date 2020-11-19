@@ -9,7 +9,6 @@ export class DomControlService {
 
   public addScript(url: string) {
     const script = document.createElement('script');
-    script.type = 'text/javascript';
     script.src = url;
     this.document.head.appendChild(script);
   }
