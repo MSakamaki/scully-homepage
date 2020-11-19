@@ -13,7 +13,7 @@ export class DomControlService {
     this.document.head.appendChild(script);
   }
 
-  public addStylesheets(url: string) {
+  public addStylesheet(url: string) {
     const link = document.createElement('link');
     link.href = url;
     link.rel = 'stylesheet';

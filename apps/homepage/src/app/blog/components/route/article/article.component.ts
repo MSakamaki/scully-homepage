@@ -52,7 +52,7 @@ export class ArticleComponent implements OnInit {
     this.domControlService.addScript(
       'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js'
     );
-    this.domControlService.addStylesheets(
+    this.domControlService.addStylesheet(
       'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-twilight.min.css'
     );
   }
