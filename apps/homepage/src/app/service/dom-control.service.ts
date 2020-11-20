@@ -9,17 +9,17 @@ export class DomControlService {
 
   public async addScript(url: string) {
     return new Promise((loaded, setError) => {
-      const script = document.createElement('script');
+      const script = this.document.createElement('script');
       script.src = url;
       script.onload = loaded;
       script.onerror = setError;
-      document.head.appendChild(script);
+      this.document.head.appendChild(script);
     });
   }
 
   public async addStylesheet(url: string) {
     return new Promise((loaded, setError) => {
-      const link = document.createElement('link');
+      const link = this.document.createElement('link');
       link.href = url;
       link.rel = 'stylesheet';
       link.onload = loaded;
