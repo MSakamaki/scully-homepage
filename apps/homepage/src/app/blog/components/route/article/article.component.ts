@@ -48,12 +48,22 @@ export class ArticleComponent implements OnInit {
     this.articleQueryRef$.pipe(map((result) => result.data.article))
   );
 
-  ngOnInit(): void {
-    this.domControlService.addScript(
-      'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js'
-    );
-    this.domControlService.addStylesheet(
-      'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-twilight.min.css'
-    );
+  // TODO: 詳細ページから詳細ページにrouter経由で移動したときに、無限にscriptタグが追加される可能性がある
+  async ngOnInit() {
+    try {
+      await this.domControlService.addScript(
+        'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js'
+      );
+    } catch (e) {
+      console.log(e);
+    }
+
+    try {
+      await this.domControlService.addStylesheet(
+        'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-twilight.min.css'
+      );
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

@@ -7,16 +7,24 @@ import { Inject, Injectable } from '@angular/core';
 export class DomControlService {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
-  public addScript(url: string) {
-    const script = document.createElement('script');
-    script.src = url;
-    this.document.head.appendChild(script);
+  public async addScript(url: string) {
+    return new Promise((loaded, setError) => {
+      const script = document.createElement('script');
+      script.src = url;
+      script.onload = loaded;
+      script.onerror = setError;
+      document.head.appendChild(script);
+    });
   }
 
-  public addStylesheet(url: string) {
-    const link = document.createElement('link');
-    link.href = url;
-    link.rel = 'stylesheet';
-    this.document.head.appendChild(link);
+  public async addStylesheet(url: string) {
+    return new Promise((loaded, setError) => {
+      const link = document.createElement('link');
+      link.href = url;
+      link.rel = 'stylesheet';
+      link.onload = loaded;
+      link.onerror = setError;
+      this.document.head.appendChild(link);
+    });
   }
 }
