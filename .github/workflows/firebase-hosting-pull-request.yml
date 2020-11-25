@@ -130,4 +130,6 @@ jobs:
       - name: scully build
         run: npm run scully
       - name: run Lighthouse CI
-        run: npx @lhci/cli autorun
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
