@@ -34,7 +34,8 @@
     "fb:serve": "firebase serve",
     "preinstall": "npx check-node-version --node 14",
     "prestart": "npx check-node-version --node 14",
-    "pretest": "npx check-node-version --node 14"
+    "pretest": "npx check-node-version --node 14",
+    "serve:lhci": "npm run scully:serve"
   },
   "private": true,
   "dependencies": {
