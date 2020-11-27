@@ -1,7 +1,7 @@
 module.exports = {
   ci: {
     collect: {
-      url: ['https://wot.mihirogi.org/'],
+      url: ['http://localhost:1668'],
     },
     upload: {
       target: 'lhci',
