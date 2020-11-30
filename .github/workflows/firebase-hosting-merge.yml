@@ -32,3 +32,22 @@ jobs:
           projectId: scully-homepage-5df8c
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+  lhci:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm ci
+        run: npm ci
+      - name: project build
+        run: npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel
+      - name: scully build
+        run: npm run scully
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
