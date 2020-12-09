@@ -1,1 +1,7 @@
-<p>article works!</p>
+<ng-container *ngIf="article$ | async as article">
+  <h1>{{ article.title }}</h1>
+  <span>{{ article.publishing }}</span>
+  <div>
+    <markdown [data]="article.body"></markdown>
+  </div>
+</ng-container>

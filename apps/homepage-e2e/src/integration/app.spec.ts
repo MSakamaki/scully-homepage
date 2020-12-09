@@ -25,3 +25,25 @@ describe('homepage', () => {
     cy.matchImageSnapshot();
   });
 });
+
+describe('article detail page', () => {
+  beforeEach(() => {
+    cy.visit('/');
+    app.getArtices().last().contains('ブログつくりました').click();
+  });
+
+  it('should display graphcms article details', () => {
+    cy.get('h1', {
+      timeout: 1000,
+    })
+      .should('be.visible')
+      .contains('ブログつくりました');
+  });
+
+  it('pixcel test', () => {
+    cy.get('h1', {
+      timeout: 1000,
+    }).should('be.visible');
+    cy.matchImageSnapshot();
+  });
+});

@@ -10,6 +10,8 @@
   <div
     *ngFor="let article of articles; let i = index"
     [attr.data-cy]="'article-title-' + i"
+    [routerLink]="['article', article.id]"
+    role="navigation"
   >
     <h2>{{ article.title }}</h2>
     <span
