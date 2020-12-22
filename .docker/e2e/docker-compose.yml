@@ -11,3 +11,15 @@ services:
       - ../../libs:/usr/webpage/libs
       - ../../tools:/usr/webpage/tools
       - ../../scully:/usr/webpage/scully
+  shared-ui:
+    build:
+      context: ../../
+      dockerfile: .docker/e2e/Dockerfile
+    command: npx nx run shared-ui-e2e:e2e
+    container_name: shared-ui
+    volumes:
+      - ../../apps:/usr/webpage/apps
+      - ../../libs:/usr/webpage/libs
+      - ../../tools:/usr/webpage/tools
+      - ../../scully:/usr/webpage/scully
+      - ../../.storybook:/usr/webpage/.storybook
