@@ -10,7 +10,7 @@
       },
       "root": "apps/homepage",
       "sourceRoot": "apps/homepage/src",
-      "prefix": "web-page",
+      "prefix": "wot",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -235,7 +235,7 @@
       "projectType": "library",
       "root": "libs/shared/ui",
       "sourceRoot": "libs/shared/ui/src",
-      "prefix": "web-page",
+      "prefix": "wot",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

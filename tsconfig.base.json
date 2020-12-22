@@ -16,8 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@web-page/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@web-page/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@wot/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@wot/shared/ui": ["libs/shared/ui/src/index.ts"]
     },
     "allowSyntheticDefaultImports": true
   },

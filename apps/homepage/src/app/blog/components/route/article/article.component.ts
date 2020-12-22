@@ -10,7 +10,7 @@ import { DomControlService } from '../../../../service/dom-control.service';
 const STATE_NAME_DETAIL = 'detail';
 
 @Component({
-  selector: 'web-page-article',
+  selector: 'wot-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
 })

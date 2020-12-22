@@ -1,5 +1,5 @@
 {
-  "npmScope": "web-page",
+  "npmScope": "wot",
   "affected": {
     "defaultBase": "master"
   },
