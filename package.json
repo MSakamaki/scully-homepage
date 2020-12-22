@@ -84,6 +84,7 @@
     "@nrwl/storybook": "^11.0.16",
     "@nrwl/tao": "11.0.15",
     "@nrwl/workspace": "11.0.15",
+    "@storybook/addon-centered": "^5.3.21",
     "@storybook/addon-knobs": "^6.1.11",
     "@storybook/angular": "^6.1.11",
     "@types/jest": "26.0.19",
