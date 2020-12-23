@@ -35,7 +35,9 @@
     "prestart": "npx check-node-version --node 14",
     "pretest": "npx check-node-version --node 14",
     "serve:lhci": "npm run scully:serve",
-    "workspace-generator": "nx workspace-generator"
+    "workspace-generator": "nx workspace-generator",
+    "pre-push:e2e:homepage": "docker-compose -f .docker/e2e/docker-compose.yml up --build --exit-code-from homepage homepage",
+    "pre-push:e2e:storybook": "docker-compose -f .docker/e2e/docker-compose.yml up --build --exit-code-from shared-ui shared-ui"
   },
   "private": true,
   "dependencies": {
@@ -117,7 +119,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run format:write && npm run affected:lint -- --parallel --uncommitted && npm run affected:test -- --parallel --uncommitted && git add .",
-      "pre-push": "docker-compose -f .docker/e2e/docker-compose.yml up --build --exit-code-from homepage && npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully",
+      "pre-push": "npm run pre-push:e2e:homepage && npm run pre-push:e2e:storybook && npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully",
       "post-merge": "post-merge-install",
       "post-rebase": "post-merge-install"
     }
