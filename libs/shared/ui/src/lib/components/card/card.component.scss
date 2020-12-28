@@ -1,3 +1,7 @@
+@import '../../scss/shared-ui.scss';
+
 :host {
+  @include elevation();
   display: block;
+  padding: 8px;
 }
