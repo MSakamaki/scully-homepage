@@ -1,0 +1,47 @@
+@import '../shared-ui.scss';
+
+.label {
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+}
+
+$colors: (
+  'black': (
+    background: $black,
+    on: $white,
+  ),
+  'white': (
+    background: $white,
+    on: $black,
+  ),
+  'surface': (
+    background: $surface,
+    on: $on-surface,
+  ),
+  'background': (
+    background: $background,
+    on: $on-background,
+  ),
+  'disabled': (
+    background: $disabled,
+    on: $on-disabled,
+  ),
+  'error': (
+    background: $error,
+    on: $on-error,
+  ),
+);
+
+.colors {
+  padding: 8px;
+  margin: 8px;
+  line-height: 32px;
+
+  @each $name, $color in $colors {
+    &-#{$name} {
+      background-color: map-get($color, background);
+      color: map-get($color, on);
+    }
+  }
+}

@@ -1,0 +1,55 @@
+/**
+* @example
+*  @extend %default-font-family;
+ **/
+%default-font-family {
+  font-family: 'Helvetica Neue', Helvetica, Arial, 游ゴシック, 'Yu Gothic',
+    游ゴシック体, YuGothic, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro',
+    'Meiryo UI', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+/**
+* https://material.io/design/typography/the-type-system.html#type-scale
+* @example
+*  @include font(text);
+**/
+@mixin font($size: page-title, $em: 1.6em) {
+  $font-size: (
+    page-title: 30,
+    board-title: 24,
+    headline: 18,
+    story-bold: 16,
+    story: 16,
+    text: 14,
+    small-text: 12,
+    in-title: 12,
+    note: 11,
+    note-bold: 10,
+  );
+
+  $font-weight: (
+    page-title: bold,
+    board-title: bold,
+    headline: bold,
+    story-bold: bold,
+    story: normal,
+    text: normal,
+    small-text: normal,
+    in-title: normal,
+    note: normal,
+    note-bold: bold,
+  );
+
+  $type-size: map-get($font-size, $size);
+  $type-weight: map-get($font-weight, $size);
+  @if ($type-size == null) {
+    @error " get-fonts() のパラメーターが正しくありません。";
+  }
+  @if ($em == null) {
+    $em: 1.6em;
+  }
+
+  font-size: #{$type-size}px;
+  line-height: $em;
+  font-weight: $type-weight;
+}

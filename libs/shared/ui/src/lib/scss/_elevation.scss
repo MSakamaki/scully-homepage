@@ -1,0 +1,5 @@
+@mixin elevation($level: 4) {
+  box-shadow: 0px #{$level}px #{$level}px rgba(0, 0, 0, $level * 0.02),
+    0px #{floor($level / 3)}px #{$level}px rgba(0, 0, 0, $level * 0.03),
+    0px -#{floor($level / 4)}px #{$level}px rgba(0, 0, 0, $level * 0.03);
+}
