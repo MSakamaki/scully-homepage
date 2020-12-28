@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { ApolloTestingModule } from 'apollo-angular/testing';
 import { HomeComponent } from './home.component';
+import { SharedUiModule } from '@wot/shared/ui';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -10,7 +11,12 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ApolloTestingModule, ScullyLibModule, RouterTestingModule],
+      imports: [
+        ApolloTestingModule,
+        ScullyLibModule,
+        RouterTestingModule,
+        SharedUiModule,
+      ],
       declarations: [HomeComponent],
     }).compileComponents();
   });

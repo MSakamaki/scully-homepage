@@ -4,4 +4,7 @@
   @include elevation();
   display: block;
   padding: 8px;
+  background-color: $surface;
+  color: $on-surface;
+  border-radius: 8px;
 }

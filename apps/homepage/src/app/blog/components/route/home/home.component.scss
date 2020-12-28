@@ -1,7 +1,21 @@
+@import 'shared-ui';
+
 :host {
-  display: flex;
+  @include flex-row();
+  @include media('xsmall') {
+    @include flex-column();
+    padding: 8px;
+  }
 }
 
-div {
-  cursor: pointer;
+section {
+  width: 100%;
+  wot-card {
+    cursor: pointer;
+    margin-bottom: 16px;
+
+    .tag {
+      margin-right: 8px;
+    }
+  }
 }

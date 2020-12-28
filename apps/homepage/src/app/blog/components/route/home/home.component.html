@@ -7,7 +7,7 @@
   </div>
 </section>
 <section *ngIf="articles$ | async as articles">
-  <div
+  <wot-card
     *ngFor="let article of articles; let i = index"
     [attr.data-cy]="'article-title-' + i"
     [routerLink]="['article', article.id]"
@@ -15,10 +15,11 @@
   >
     <h2>{{ article.title }}</h2>
     <span
+      class="tag"
       *ngFor="let tag of article.tags; let i = index"
       [attr.data-cy]="'tag-' + tag.name"
       >#{{ tag.name }}</span
     >
     <div>{{ article.publishing }}</div>
-  </div>
+  </wot-card>
 </section>

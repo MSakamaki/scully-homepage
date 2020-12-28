@@ -46,7 +46,10 @@
               "@apollo/client",
               "graphql-tag",
               "zen-observable"
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/shared/ui/src/lib/scss"]
+            }
           },
           "configurations": {
             "production": {
