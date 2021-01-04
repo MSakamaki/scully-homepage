@@ -32,22 +32,6 @@ jobs:
           name: diff_outputs
           # https://github.com/actions/upload-artifact/issues/55
           path: apps/homepage-e2e/src/snapshot/app.spec.ts/__diff_output__
-  cypress-run-storybook:
-    runs-on: ubuntu-16.04
-    container: cypress/browsers:node14.7.0-chrome84
-    steps:
-      - uses: actions/checkout@v1
-      - uses: cypress-io/github-action@v2
-        with:
-          browser: chrome
-          headless: true
-          command: npx nx run shared-ui-e2e:e2e
-      - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: diff_outputs
-          # https://github.com/actions/upload-artifact/issues/55
-          path: apps/homepage-e2e/src/snapshot/app.spec.ts/__diff_output__
   validation:
     runs-on: ubuntu-latest
     steps:
