@@ -4,4 +4,8 @@ describe('shared-ui', () => {
   it('should render the component', () => {
     cy.get('wot-card').should('exist');
   });
+
+  it('pixcel test', () => {
+    cy.matchImageSnapshot();
+  });
 });
