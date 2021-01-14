@@ -1,0 +1,25 @@
+@import '../fonts';
+
+$fonts: (
+  page-title,
+  board-title,
+  headline,
+  story-bold,
+  story,
+  text,
+  small-text,
+  in-title,
+  note,
+  note-bold
+);
+
+.fonts {
+  padding: 8px;
+  margin: 8px;
+
+  @each $font in $fonts {
+    &-#{$font} {
+      @include font($font);
+    }
+  }
+}

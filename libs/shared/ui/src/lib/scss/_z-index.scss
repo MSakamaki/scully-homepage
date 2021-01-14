@@ -1,0 +1,18 @@
+$z-index-map: (
+  default: 0,
+  header: 100,
+  toolbar: 100,
+  popup-menu: 50,
+);
+
+/**
+* @example
+*  @include z-index(toolbar);
+**/
+@mixin z-index($type: default) {
+  $z-index: map-get($z-index-map, $type);
+  @if ($z-index == null) {
+    @error " get-fonts() のパラメーターが正しくありません。";
+  }
+  z-index: $z-index;
+}

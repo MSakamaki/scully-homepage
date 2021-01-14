@@ -1,9 +1,10 @@
 {
-  "name": "web-page",
+  "name": "wot",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
+    "dependencieCheck": "npx check-dependencies --scopeList dependencies --scopeList devDependencies --scopeList fileDependencies",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "ng serve",
@@ -32,10 +33,12 @@
     "api:serve": "ng run api:serve",
     "fb:serve": "firebase serve",
     "preinstall": "npx check-node-version --node 14",
-    "prestart": "npx check-node-version --node 14",
-    "pretest": "npx check-node-version --node 14",
+    "prestart": "npx check-node-version --node 14  && npm run dependencieCheck",
+    "pretest": "npx check-node-version --node 14  && npm run dependencieCheck",
     "serve:lhci": "npm run scully:serve",
-    "workspace-generator": "nx workspace-generator"
+    "workspace-generator": "nx workspace-generator",
+    "pre-push:e2e:homepage": "docker-compose -f .docker/e2e/docker-compose.yml up --build --exit-code-from homepage homepage",
+    "pre-push:e2e:storybook": "docker-compose -f .docker/e2e/docker-compose.yml up --build --exit-code-from shared-ui shared-ui"
   },
   "private": true,
   "dependencies": {
@@ -64,6 +67,7 @@
     "normalize.css": "^8.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.5",
+    "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
@@ -80,10 +84,16 @@
     "@nrwl/jest": "11.0.15",
     "@nrwl/nest": "11.0.15",
     "@nrwl/node": "11.0.15",
+    "@nrwl/storybook": "^11.0.16",
     "@nrwl/tao": "11.0.15",
     "@nrwl/workspace": "11.0.15",
+    "@storybook/addon-centered": "^5.3.21",
+    "@storybook/addon-knobs": "^6.1.11",
+    "@storybook/angular": "^6.1.11",
     "@types/jest": "26.0.19",
     "@types/node": "14.14.14",
+    "@types/webpack": "4.41.21",
+    "check-dependencies": "^1.1.0",
     "codelyzer": "6.0.1",
     "concurrently": "^5.3.0",
     "cypress": "^4.1.0",
@@ -111,7 +121,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run format:write && npm run affected:lint -- --parallel --uncommitted && npm run affected:test -- --parallel --uncommitted && git add .",
-      "pre-push": "docker-compose -f .docker/e2e/docker-compose.yml up --build --exit-code-from homepage && npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully",
+      "pre-push": "npm run pre-push:e2e:homepage && npm run pre-push:e2e:storybook && npx nx run-many --target=build --configuration=production --projects=homepage,api --parallel && npm run scully",
       "post-merge": "post-merge-install",
       "post-rebase": "post-merge-install"
     }

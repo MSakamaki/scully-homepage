@@ -1,5 +1,5 @@
 {
-  "name": "web-page-api",
+  "name": "wot-api",
   "version": "0.0.0",
   "main": "./main.js",
   "engines": {

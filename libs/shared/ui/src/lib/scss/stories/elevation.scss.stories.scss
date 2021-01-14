@@ -1,0 +1,13 @@
+@import '../shared-ui.scss';
+
+.elevation {
+  padding: 4px;
+  margin: 16px;
+  line-height: 16px;
+
+  @for $i from 1 through 10 {
+    &-#{$i} {
+      @include elevation($i);
+    }
+  }
+}

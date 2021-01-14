@@ -1,0 +1,63 @@
+$breakpoint-window: (
+  xsmall: (
+    min: 0,
+    max: 599,
+  ),
+  small: (
+    min: 600,
+    max: 1023,
+  ),
+  medium: (
+    min: 1024,
+    max: 1439,
+  ),
+  large: (
+    min: 1440,
+    max: 1919,
+  ),
+  xlarge: (
+    min: 1920,
+    max: null,
+  ),
+);
+
+/// @see https://material.io/design/layout/responsive-layout-grid.html#breakpoints
+/// @example
+/// .style {
+///   @include media("xsmall", "small") {
+///     background: red;
+///   }
+/// }
+@mixin media($args...) {
+  $w-max: null;
+  $w-min: null;
+
+  @each $arg in $args {
+    $width-map: map-get($breakpoint-window, $arg);
+
+    @if ($width-map == null) {
+      @error "media() のパラメーターが正しくありません。[xsmall, small, medium, large, xlarge]";
+    }
+
+    @if ($w-min == null) {
+      $w-min: map-get($width-map, min);
+    } @else if ($w-min > map-get($width-map, min)) {
+      $w-min: map-get($width-map, min);
+    }
+
+    @if ($w-max == null) {
+      $w-max: map-get($width-map, max);
+    } @else if ($w-max < map-get($width-map, max)) {
+      $w-max: map-get($width-map, max);
+    }
+  }
+
+  $query: '(min-width:' + $w-min + 'px)';
+  @if ($w-max != null) {
+    $query: $query + ' and (max-width:' + $w-max + 'px)';
+  }
+
+  @media #{$query} {
+    @content;
+  }
+}

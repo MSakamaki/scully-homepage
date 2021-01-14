@@ -30,7 +30,7 @@ export interface Tag {
 }
 
 @Component({
-  selector: 'web-page-home',
+  selector: 'wot-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
