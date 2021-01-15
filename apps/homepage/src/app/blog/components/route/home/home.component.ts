@@ -37,6 +37,18 @@ export interface Tag {
 export class HomeComponent implements OnInit {
   private valueChangesSubscription$: Subscription = void 0;
 
+  private _activeTag = '';
+  public get activeTag(): string {
+    return this._activeTag;
+  }
+
+  public set activeTag(tag: string) {
+    this._activeTag = tag;
+    this.articleQueryRef$.setVariables({
+      where: { AND: [{ tags_some: { name: tag } }] },
+    });
+  }
+
   constructor(
     private apollo: Apollo,
     private transferState: UserEventHookTransferStateService
@@ -84,10 +96,4 @@ export class HomeComponent implements OnInit {
   );
 
   ngOnInit(): void {}
-
-  onTagSet(tag: string) {
-    this.articleQueryRef$.setVariables({
-      where: { AND: [{ tags_some: { name: tag } }] },
-    });
-  }
 }

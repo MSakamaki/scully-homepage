@@ -2,7 +2,7 @@
 
 ![Deploy to Firebase Hosting on merge](https://github.com/MSakamaki/scully-homepage/workflows/Deploy%20to%20Firebase%20Hosting%20on%20merge/badge.svg)
 
-[homepage](https://scully-homepage-5df8c.web.app/)
+[homepage](https://wot.mihirogi.org/)
 
 ## development
 

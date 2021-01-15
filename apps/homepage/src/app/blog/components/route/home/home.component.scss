@@ -10,6 +10,23 @@
 
 section {
   width: 100%;
+
+  div {
+    button {
+      border: 1px solid $graphic-objects;
+      padding: 4px 16px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      background: none;
+      cursor: pointer;
+
+      &.active {
+        background-color: $graphic-objects;
+        color: $on-graphic-objects;
+      }
+    }
+  }
+
   wot-card {
     cursor: pointer;
     margin-bottom: 16px;
