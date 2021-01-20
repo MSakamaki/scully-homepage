@@ -109,7 +109,7 @@
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.1",
     "npm-check-updates": "^10.2.5",
-    "open": "^7.3.0",
+    "open": "^7.3.1",
     "post-merge-install": "^0.4.0",
     "prettier": "2.1.2",
     "ts-jest": "26.4.0",
