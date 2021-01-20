@@ -81,7 +81,7 @@
     "@nestjs/testing": "^7.0.0",
     "@nrwl/cli": "11.0.15",
     "@nrwl/cypress": "11.0.15",
-    "@nrwl/jest": "11.0.15",
+    "@nrwl/jest": "11.1.5",
     "@nrwl/nest": "11.0.15",
     "@nrwl/node": "11.0.15",
     "@nrwl/storybook": "^11.0.16",
