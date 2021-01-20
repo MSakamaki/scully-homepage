@@ -79,7 +79,7 @@
     "@gammastream/scully-plugin-sitemap": "^1.0.6",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
-    "@nrwl/cli": "11.0.15",
+    "@nrwl/cli": "11.1.5",
     "@nrwl/cypress": "11.0.15",
     "@nrwl/jest": "11.0.15",
     "@nrwl/nest": "11.0.15",
