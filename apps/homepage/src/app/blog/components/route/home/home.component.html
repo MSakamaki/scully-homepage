@@ -1,7 +1,8 @@
 <section>
   <h2>記事のタグ一覧</h2>
-  <div *ngFor="let tag of tags$ | async; let i = index">
+  <div class="filter">
     <button
+      *ngFor="let tag of tags$ | async; let i = index"
       [class.active]="tag === activeTag"
       (click)="activeTag = tag"
       [attr.data-cy]="'filter-tag-' + tag"

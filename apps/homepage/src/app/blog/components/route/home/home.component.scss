@@ -11,12 +11,18 @@
 section {
   width: 100%;
 
-  div {
+  .filter {
+    @include flex-column();
+
+    @include media('xsmall') {
+      @include flex-row();
+      margin-bottom: 2em;
+    }
     button {
       border: 1px solid $graphic-objects;
       padding: 4px 16px;
       border-radius: 4px;
-      margin-bottom: 8px;
+      margin: 0 8px 8px 0;
       background: none;
       cursor: pointer;
 
