@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Article } from '../home/home.component';
 import { UserEventHookTransferStateService } from '../home/user-event-hook-transfer-state.service';
 import { DomControlService } from '../../../../service/dom-control.service';
+import { fadeAnimation } from '@wot/shared/ui';
 
 /** scully.TransferStateService name: detail summary */
 const STATE_NAME_DETAIL = 'detail';
@@ -13,6 +14,7 @@ const STATE_NAME_DETAIL = 'detail';
   selector: 'wot-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
+  animations: [fadeAnimation],
 })
 export class ArticleComponent implements OnInit {
   constructor(

@@ -1,7 +1,7 @@
-<ng-container *ngIf="article$ | async as article">
+<div *ngIf="article$ | async as article" @fade>
   <h1>{{ article.title }}</h1>
   <span>{{ article.publishing }}</span>
   <div>
     <markdown [data]="article.body"></markdown>
   </div>
-</ng-container>
+</div>
