@@ -9,3 +9,10 @@ body {
   background-color: $background;
   color: $on-background;
 }
+
+// For this module(https://github.com/jfcere/ngx-markdown)
+markdown {
+  img {
+    width: 100%;
+  }
+}

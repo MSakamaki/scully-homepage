@@ -1,0 +1,8 @@
+@import 'shared-ui';
+
+:host {
+  display: block;
+  @include media('xsmall') {
+    margin: 0 8px;
+  }
+}
