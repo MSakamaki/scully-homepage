@@ -19,6 +19,12 @@ docker-compose -f .docker/e2e/docker-compose.yml up --build
 npx concurrently "npx nx e2e homepage-e2e --watch" "port=3333  npm start api" --names 'E2E,API'
 ```
 
+## storybook
+
+```sh
+npx nx run shared-ui:storybook
+```
+
 ## scully development
 
 ```sh
