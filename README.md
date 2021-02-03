@@ -1,8 +1,8 @@
 # WebPage
 
-![Deploy to Firebase Hosting on merge](https://github.com/MSakamaki/scully-homepage/workflows/Deploy%20to%20Firebase%20Hosting%20on%20merge/badge.svg)
+![released](https://github.com/MSakamaki/scully-homepage/workflows/Deploy%20to%20Firebase%20Hosting%20on%20merge/badge.svg)
 
-[homepage](https://wot.mihirogi.org/)
+[![](https://img.shields.io/badge/AccessTo-BLOG-blue)](https://wot.mihirogi.org/)
 
 ## development
 
