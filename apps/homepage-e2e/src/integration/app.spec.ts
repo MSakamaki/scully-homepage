@@ -50,8 +50,6 @@ describe('homepage', () => {
       cy.get('h1', {
         timeout: 1000,
       }).should('be.visible');
-      // TODO: Apply a temporary wait, really a NoopAnimation, to disable animation.
-      cy.wait(1000);
       cy.matchImageSnapshot();
     });
   });
