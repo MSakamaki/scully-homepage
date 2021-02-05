@@ -3,6 +3,7 @@
 ![released](https://github.com/MSakamaki/scully-homepage/workflows/Deploy%20to%20Firebase%20Hosting%20on%20merge/badge.svg)
 
 [![](https://img.shields.io/badge/AccessTo-BLOG-blue)](https://wot.mihirogi.org/)
+[![](https://img.shields.io/badge/AccessTo-LightHouseServer-blue)](https://still-island-43535.herokuapp.com/app/projects/scully-homepage/dashboard)
 
 ## development
 
