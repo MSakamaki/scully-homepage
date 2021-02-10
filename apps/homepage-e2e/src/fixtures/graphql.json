@@ -1,0 +1,66 @@
+{
+  "data": {
+    "article": {
+      "body": "---\n__Advertisement :)__\n\n- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image\n  resize in browser.\n- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly\n  i18n with plurals support and easy syntax.\n\nYou will like those projects!\n\n---\n\n# h1 Heading 8-)\n## h2 Heading\n### h3 Heading\n#### h4 Heading\n##### h5 Heading\n###### h6 Heading\n\n\n## Horizontal Rules\n\n___\n\n---\n\n***\n\n\n",
+      "title": "マークダウン検証用",
+      "writer": {
+        "name": "mihirogi",
+        "jobTitle": "WebDeveloper"
+      },
+      "publishing": "2020-10-29"
+    },
+    "articles": [
+      {
+        "id": "ckj8h3lhk92850986ib6ylqx8",
+        "title": "scss tips",
+        "publishing": "2020-12-28",
+        "writer": null,
+        "tags": [
+          {
+            "name": "技術メモ"
+          }
+        ]
+      },
+      {
+        "id": "ckgujzmyo0dro0a84gi405vfp",
+        "title": "マークダウン検証用",
+        "publishing": "2020-10-29",
+        "writer": {
+          "name": "mihirogi"
+        },
+        "tags": [
+          {
+            "name": "本文検証用"
+          },
+          {
+            "name": "タグ検証用"
+          }
+        ]
+      },
+      {
+        "id": "ckgip17bc09ns0b81m14gqcwc",
+        "title": "ブログつくりました",
+        "publishing": "2020-10-21",
+        "writer": {
+          "name": "mihirogi"
+        },
+        "tags": [
+          {
+            "name": "本文検証用"
+          }
+        ]
+      }
+    ],
+    "tags": [
+      {
+        "name": "本文検証用"
+      },
+      {
+        "name": "タグ検証用"
+      },
+      {
+        "name": "技術メモ"
+      }
+    ]
+  }
+}

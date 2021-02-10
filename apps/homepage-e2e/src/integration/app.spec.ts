@@ -1,7 +1,15 @@
 import * as app from '../support/app.po';
 
 describe('homepage', () => {
-  beforeEach(() => cy.visit('/'));
+  beforeEach(() => {
+    cy.intercept(
+      'POST',
+      'https://api-ap-northeast-1.graphcms.com/v2/ckgioul2y9kcd01zb36y9ffqg/master',
+      { fixture: 'graphql.json' }
+    ).as('graphql');
+    cy.visit('/');
+    cy.wait('@graphql');
+  });
 
   it('should display 記事のタグ一覧', () => {
     cy.get('[data-cy^="filter-tag-"]', {
@@ -24,26 +32,25 @@ describe('homepage', () => {
     }).should('be.visible');
     cy.matchImageSnapshot();
   });
-});
 
-describe('article detail page', () => {
-  beforeEach(() => {
-    cy.visit('/');
-    app.getArtices().last().contains('ブログつくりました').click();
-  });
+  describe('article detail page', () => {
+    beforeEach(() => {
+      app.getArtices().contains('マークダウン検証用').click();
+    });
 
-  it('should display graphcms article details', () => {
-    cy.get('h1', {
-      timeout: 1000,
-    })
-      .should('be.visible')
-      .contains('ブログつくりました');
-  });
+    it('should display graphcms article details', () => {
+      cy.get('h1', {
+        timeout: 1000,
+      })
+        .should('be.visible')
+        .contains('マークダウン検証用');
+    });
 
-  it('pixcel test', () => {
-    cy.get('h1', {
-      timeout: 1000,
-    }).should('be.visible');
-    cy.matchImageSnapshot();
+    it('pixcel test', () => {
+      cy.get('h1', {
+        timeout: 1000,
+      }).should('be.visible');
+      cy.matchImageSnapshot();
+    });
   });
 });

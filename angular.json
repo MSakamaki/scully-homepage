@@ -52,6 +52,14 @@
             }
           },
           "configurations": {
+            "e2e": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/homepage/src/environments/environment.ts",
+                  "with": "apps/homepage/src/environments/environment.e2e.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -91,6 +99,9 @@
           "configurations": {
             "production": {
               "browserTarget": "homepage:build:production"
+            },
+            "e2e": {
+              "browserTarget": "homepage:build:e2e"
             }
           }
         },
@@ -135,7 +146,7 @@
           "options": {
             "cypressConfig": "apps/homepage-e2e/cypress.json",
             "tsConfig": "apps/homepage-e2e/tsconfig.e2e.json",
-            "devServerTarget": "homepage:serve"
+            "devServerTarget": "homepage:serve:e2e"
           },
           "configurations": {
             "production": {
