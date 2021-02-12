@@ -3,7 +3,14 @@
 ![released](https://github.com/MSakamaki/scully-homepage/workflows/Deploy%20to%20Firebase%20Hosting%20on%20merge/badge.svg)
 
 [![](https://img.shields.io/badge/AccessTo-BLOG-blue)](https://wot.mihirogi.org/)
+
 [![](https://img.shields.io/badge/AccessTo-LightHouseServer-blue)](https://still-island-43535.herokuapp.com/app/projects/scully-homepage/dashboard)
+
+[![](https://img.shields.io/badge/AccessTo-SearchConsole-blue)](https://search.google.com/search-console?resource_id=sc-domain%3Awot.mihirogi.org&hl=ja)
+
+[![](https://img.shields.io/badge/AccessTo-Firebase-FFCA28)](https://console.firebase.google.com/u/0/project/scully-homepage-5df8c/overview)
+
+[![](https://img.shields.io/badge/AccessTo-GitHub-4078c0)](https://github.com/MSakamaki/scully-homepage)
 
 ## development
 

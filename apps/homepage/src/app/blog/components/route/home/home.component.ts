@@ -3,6 +3,7 @@ import { UserEventHookTransferStateService } from './user-event-hook-transfer-st
 import { Apollo, gql } from 'apollo-angular';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { DomSanitizer } from '@angular/platform-browser';
 
 /** scully.TransferStateService name: article summary */
 const STATE_NAME_ARTICLE = 'articles';
@@ -49,9 +50,25 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  public jsonld = this.sanitizer
+    .bypassSecurityTrustHtml(`<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    "name": "wot",
+    "url": "https://wot.mihirogi.org/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>`);
+
   constructor(
     private apollo: Apollo,
-    private transferState: UserEventHookTransferStateService
+    private transferState: UserEventHookTransferStateService,
+    private sanitizer: DomSanitizer
   ) {}
 
   private readonly articleQueryRef$ = this.apollo.watchQuery<{
