@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /
-Sitemap:https://scully-homepage-5df8c.web.app/sitemap.xml
+Sitemap:https://wot.mihirogi.org/sitemap.xml
